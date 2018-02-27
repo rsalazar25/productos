@@ -21,5 +21,11 @@ if(isset($_GET['IdProducto']) && $_GET['action']=='editar') {
 		//$update=$categoria->update_categorias($_POST['id'], $_POST['Cat'], $_POST['desc']);
 	}
 
+if (isset($_POST['update'])) {
+
+		$update=$producto->update_productos($_POST['IdProducto'], $_POST['Codigo'], $_POST['Nombre'], $_POST['IdCategoria'], $_POST['Unidad'], $_POST['Activo'], $_POST['Min'], $_POST['Max']);
+		header("location:index.php?IdProducto=".$_POST['IdProducto']."&action=editar");
+	}
+
 
 ?>

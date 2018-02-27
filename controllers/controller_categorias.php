@@ -4,7 +4,7 @@
 
 	//Mando a llamar al constructor de la clase categorias modelo, en la instancia
 	$categoria=new Categorias_models();
-if(!isset($_GET['IdProducto'])) {
+if(!isset($_GET['IdCategoria'])) {
 	//Creo una variable para que me devuelva el array con todos los productos
 	$registros_c=$categoria->get_categorias();
 
@@ -25,7 +25,7 @@ if(!isset($_GET['IdProducto'])) {
 	} 
 
 
-if(isset($_GET['IdCategoria']) && $_GET['action']=='editar') {
+if(isset($_GET['IdCategoria']) && $_GET['action']=='editar_categorias') {
 
 		$actualiza=$categoria->mostrar_categorias($_GET['IdCategoria']);
 

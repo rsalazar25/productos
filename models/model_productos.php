@@ -30,7 +30,7 @@
 
 		//funcion para insertar Productos
 
-		public function set_productos($Codigo, $Nombre, $Unidad, $Cantidad, $Descripcion, $Precio, $Activo, $Foto1, $Foto2, $Min, $Max) {
+		public function set_productos($Codigo, $Nombre, $Unidad, $Cantidad, $Descripcion, $Precio, $Activo, $Min, $Max) {
  
         	$sql = "INSERT INTO in_productos (Codigo,Nombre, Unidad, Cantidad, Descripcion, Precio, Activo, Foto1, Foto2, Min, Max) VALUES ('$Codigo','$Nombre', '$Unidad', '$Cantidad', '$Descripcion', '$Precio', '$Activo', '$Foto1', '$Foto2', '$Min', '$Max')";
         	$result = $this->db->query($sql);
@@ -65,6 +65,21 @@
 
 			return $this->productos;
 		}
+
+
+		public function update_productos($IdProducto, $Codigo, $Nombre, $IdCategoria, $Unidad, $Activo, $Min, $Max){
+
+ 		    $sql = "UPDATE in_productos SET Codigo = '". $Codigo ."', Nombre = '". $Nombre ."', IdCategoria = '".$IdCategoria."', Unidad = '". $Unidad ."', Activo = '". $Activo ."',  Min = '". $Min ."',  Max = '". $Max ."'  WHERE IdProducto = '".$IdProducto."' ";
+    		$result= $this->db->query($sql);
+    		if($result){
+    			return true;
+    		} else {
+    			return false;
+    		}
+
+		}
+
+
 
 	}
 ?>
